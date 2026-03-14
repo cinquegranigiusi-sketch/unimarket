@@ -9,7 +9,7 @@ function MieiAnnunci() {
 
   useEffect(() => {
 
-    axios.get("https://unimarket-itwd.onrender.com")
+    axios.get("https://unimarket-1-n0al.onrender.com")
       .then(res => {
 
         const miei = res.data.filter(a => a.utente_id === utente.id);
@@ -24,7 +24,7 @@ function MieiAnnunci() {
 
     if (!window.confirm("Vuoi eliminare questo annuncio?")) return;
 
-    await axios.delete(`https://unimarket-itwd.onrender.com/annunci/${id}`);
+    await axios.delete(`https://unimarket-1-n0al.onrender.com/annunci/${id}`);
 
     setAnnunci(annunci.filter(a => a.id !== id));
 
@@ -35,7 +35,7 @@ function MieiAnnunci() {
   const nuovoPrezzo = prompt("Nuovo prezzo:", annuncio.prezzo);
   if (!nuovoTitolo || !nuovoPrezzo) return;
 
-  axios.put(`https://unimarket-itwd.onrender.com/annunci/${annuncio.id}`, {
+  axios.put(`https://unimarket-1-n0al.onrender.com/annunci/${annuncio.id}`, {
     titolo: nuovoTitolo,
     descrizione: annuncio.descrizione,
     prezzo: nuovoPrezzo,
@@ -76,7 +76,7 @@ function MieiAnnunci() {
 
     {annuncio.immagine && (
       <img
-        src={`https://unimarket-itwd.onrender.com/uploads/${annuncio.immagine}`}
+        src={`https://unimarket-1-n0al.onrender.com/uploads/${annuncio.immagine}`}
         alt={annuncio.titolo}
         style={{
           width: "120px",

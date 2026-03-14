@@ -8,7 +8,7 @@ function Preferiti() {
   useEffect(() => {
     if (!utente) return;
 
-    fetch(`https://unimarket-itwd.onrender.com/preferiti/${utente.id}`)
+    fetch(`https://unimarket-1-n0al.onrender.com/preferiti/${utente.id}`)
       .then(res => res.json())
       .then(data => setAnnunci(data))
       .catch(err => console.log(err));
@@ -58,7 +58,7 @@ function Preferiti() {
             >
               {a.immagine && (
                 <img
-                  src={`https://unimarket-itwd.onrender.com/uploads/${a.immagine}`}
+                  src={`https://unimarket-1-n0al.onrender.com/uploads/${a.immagine}`}
                   alt={a.titolo}
                   style={{ width: "100%", height: "180px", objectFit: "cover" }}
                 />

@@ -7,7 +7,7 @@ function DettaglioAnnuncio() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://unimarket-itwd.onrender.com/annunci`)
+    fetch(`https://unimarket-1-n0al.onrender.com/annunci`)
       .then(res => res.json())
       .then(data => {
         const trovato = data.find(a => a.id === parseInt(id));
@@ -55,7 +55,7 @@ function DettaglioAnnuncio() {
 
         {annuncio.immagine && (
           <img
-            src={`https://unimarket-itwd.onrender.com/uploads/${annuncio.immagine}`}
+            src={`https://unimarket-1-n0al.onrender.com/uploads/${annuncio.immagine}`}
             alt={annuncio.titolo}
             style={{ width: "100%", maxHeight: "400px", objectFit: "cover", borderRadius: "12px" }}
           />

@@ -20,7 +20,7 @@ function Chat() {
     const caricaMessaggi = () => {
 
       axios
-        .get(`https://unimarket-itwd.onrender.com/messaggi/${annuncioId}/${utente.id}/${venditoreId}`)
+        .get(`https://unimarket-1-n0al.onrender.com/messaggi/${annuncioId}/${utente.id}/${venditoreId}`)
         .then(res => setMessaggi(res.data))
         .catch(err => console.log(err));
 
@@ -42,7 +42,7 @@ function Chat() {
 
     try {
 
-      await axios.post("https://unimarket-itwd.onrender.com/messaggi", {
+      await axios.post("https://unimarket-1-n0al.onrender.com/messaggi", {
         mittente_id: utente.id,
         destinatario_id: venditoreId,
         annuncio_id: annuncioId,

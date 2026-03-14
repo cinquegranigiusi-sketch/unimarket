@@ -10,7 +10,7 @@ function Login() {
 
     try {
 
-      const res = await axios.post("https://unimarket-itwd.onrender.com/login", {
+      const res = await axios.post("https://unimarket-1-n0al.onrender.com/login", {
         email,
         password
       });

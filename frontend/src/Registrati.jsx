@@ -10,7 +10,7 @@ function Registrati() {
   const registra = async () => {
 
     try {
-      await axios.post("https://unimarket-itwd.onrender.com/registrati", {
+      await axios.post("https://unimarket-1-n0al.onrender.com/registrati", {
         nome,
         email,
         password

@@ -45,7 +45,7 @@ function PubblicaAnnuncio() {
     formData.append("utente_id", utente.id);
 
     try {
-      await axios.post("https://unimarket-itwd.onrender.com/annunci", formData, {
+      await axios.post("https://unimarket-1-n0al.onrender.com/annunci", formData, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
