@@ -4,7 +4,7 @@ const multer = require("multer");
 const db = require("./db");
 const http = require("http");
 const { Server } = require("socket.io");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const path = require("path");
 const fs = require("fs");
 
