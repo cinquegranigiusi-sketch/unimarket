@@ -16,8 +16,8 @@ const searchQuery = params.get("q") || "";
 
 const API =
  window.location.hostname === "localhost"
-   ? "http://localhost:3001"
-   : "https://unimarket-1-n0al.onrender.com/annunci";
+   ? "https://localhost:3001"
+   : "https://unimarket-1-n0al.onrender.com";
 
 // CARICA ANNUNCI
 useEffect(() => {
