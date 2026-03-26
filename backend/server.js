@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); // 👈 MANCAVA
 const cors = require("cors");
 const multer = require("multer");
 const db = require("./db");
@@ -89,9 +89,11 @@ app.delete("/annunci/:id", (req, res) => {
 
 app.post("/login", (req, res) => {
 
+  console.log(req.body);
+
   const { email, password } = req.body;
 
-  const sql = "SELECT * FROM utenti WHERE email = ?";
+  const sql = "SELECT * FROM utenti WHERE LOWER(email) = LOWER(?)";
 
   db.query(sql, [email], async (err, result) => {
 
@@ -103,15 +105,54 @@ app.post("/login", (req, res) => {
 
     const user = result[0];
 
-    const match = await bcrypt.compare(password, user.password);
+    console.log("Password inserita:", password);
+    console.log("Password DB:", user.password);
 
-    if (!match) {
+    let isMatch = false;
+
+    if (user.password.startsWith("$2")) {
+      isMatch = await bcrypt.compare(password, user.password);
+    } else {
+      isMatch = password === user.password;
+    }
+
+    if (!isMatch) {
       return res.status(401).json({ message: "Password errata" });
     }
 
     res.json(user);
 
   });
+
+});
+
+// =========================
+// REGISTER 👇 AGGIUNTO
+// =========================
+
+app.post("/register", async (req, res) => {
+
+  const { nome, email, password } = req.body;
+
+  try {
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const sql = `
+      INSERT INTO utenti (nome, email, password)
+      VALUES (?, ?, ?)
+    `;
+
+    db.query(sql, [nome, email, hashedPassword], (err, result) => {
+      if (err) return res.status(500).send(err);
+
+      res.json({ message: "Utente registrato!" });
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Errore server" });
+  }
 
 });
 
